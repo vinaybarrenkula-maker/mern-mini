@@ -10,21 +10,7 @@ const app = exp()
 
 // CORS middleware
 app.use(cors({
-    origin: function(origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-        
-        // Allow exactly configured FRONTEND_URL
-        if (origin === process.env.FRONTEND_URL) return callback(null, true);
-        
-        // Allow local development
-        if (origin === 'http://localhost:5173') return callback(null, true);
-        
-        // Allow ANY Vercel deployment URL (crucial for preview branches)
-        if (origin.endsWith('.vercel.app')) return callback(null, true);
-        
-        return callback(new Error('CORS policy violation'), false);
-    },
+    origin: true, // This automatically allows any origin (like a wildcard) but also supports credentials
     credentials: true
 }))
 
