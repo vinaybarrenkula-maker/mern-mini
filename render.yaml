@@ -11,12 +11,9 @@ services:
       - key: DB_URL
         sync: false
       - key: FRONTEND_URL
-        fromService:
-          name: emp-app-frontend
-          type: web
-          property: url
+        sync: false # Set this to your Frontend URL after deployment
 
-  # Frontend Static Site (Defined as type: web with runtime: static)
+  # Frontend Static Site
   - type: web
     name: emp-app-frontend
     runtime: static
@@ -26,7 +23,4 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          name: emp-app-backend
-          type: web
-          property: url
+        sync: false # Set this to your Backend URL after deployment
