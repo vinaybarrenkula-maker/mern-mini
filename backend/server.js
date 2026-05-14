@@ -18,6 +18,9 @@ app.use(cors({
 app.use(exp.json())
 
 // routes
+app.get('/', (req, res) => {
+    res.send("Employee API is running. Use /emp-api/employees to access data.")
+})
 app.use("/emp-api", empApp)
 
 const port = process.env.PORT || 3000
