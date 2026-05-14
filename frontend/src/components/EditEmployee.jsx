@@ -24,7 +24,7 @@ function EditEmployee() {
     //make HTTP PUT req to update employee details
     
     try{
-      const API_URL = import.meta.env.VITE_API_URL || "https://mern-mini-app-pht3.onrender.com/";
+      const API_URL = import.meta.env.VITE_API_URL;
       const res = await axios.put(
       `${API_URL}/emp-api/employees/${state._id}`,
       modifiedEmp,
