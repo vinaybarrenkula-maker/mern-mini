@@ -17,7 +17,7 @@ services:
           property: url
 
   # Frontend Static Site
-  - type: static-site
+  - type: static_site
     name: emp-app-frontend
     plan: free
     rootDir: frontend
