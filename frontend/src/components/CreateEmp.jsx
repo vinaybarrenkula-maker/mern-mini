@@ -30,8 +30,8 @@ function CreateEmp() {
     }
     else{
       let errorRes = await res.json();
-        console.log("error responce is ", errorRes);
-        throw new Error(errorRes.reason);
+        console.log("error response is ", errorRes);
+        throw new Error(errorRes.error || errorRes.message || "Failed to create employee");
     }
     }
     catch(err){
