@@ -13,16 +13,17 @@ services:
       - key: FRONTEND_URL
         fromService:
           name: emp-app-frontend
-          type: static_site
+          type: web
           property: url
 
-  # Frontend Static Site
-  - type: static_site
+  # Frontend Static Site (Defined as type: web with runtime: static)
+  - type: web
     name: emp-app-frontend
+    runtime: static
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
         fromService:
