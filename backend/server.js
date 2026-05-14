@@ -8,11 +8,19 @@ config()
 
 const app = exp()
 
-// CORS middleware
-app.use(cors({
-    origin: (origin, callback) => callback(null, true), // Allow all origins
-    credentials: true
-}))
+// Manual CORS middleware
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    
+    // Handle preflight
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+    next();
+});
 
 // middleware
 app.use(exp.json())
