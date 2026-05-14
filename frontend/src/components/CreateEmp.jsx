@@ -16,7 +16,7 @@ function CreateEmp() {
     try{
       setLoading(true)
       //make HTTP POST req
-      const API_URL = import.meta.env.VITE_API_URL || 'https://emp-app-backend.onrender.com';
+      const API_URL = import.meta.env.VITE_API_URL || 'https://mern-mini-rxig.onrender.com';
       let res=await fetch(`${API_URL}/emp-api/employees`,
       {
         method:"POST",
