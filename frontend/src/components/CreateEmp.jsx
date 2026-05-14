@@ -51,7 +51,7 @@ function CreateEmp() {
       <form className="w-full max-w-md mx-auto" onSubmit={handleSubmit(onFormSubmit)}>
         <input type="text" placeholder='Enter the name' {...register("name")} className="mb-3 border p-3 w-full rounded-2xl"/>
         <input type="email" placeholder='Enter the email' {...register("email")} className="mb-3 border p-3 w-full rounded-2xl"/>
-        <input type="number" placeholder='Enter the mobile number' {...register("mobile")} className="mb-3 border p-3 w-full rounded-2xl"/>
+        <input type="number" placeholder='Enter the mobile number' {...register("mobile", { valueAsNumber: true })} className="mb-3 border p-3 w-full rounded-2xl"/>
         <input type="text" placeholder='Enter the designation' {...register("designation")} className="mb-3 border p-3 w-full rounded-2xl"/>
         <input type="text" placeholder='Enter the Company Name' {...register("companyName")} className="mb-3 border p-3 w-full rounded-2xl"/>
         <button type="submit" className="block mx-auto p-4 bg-violet-300 rounded-3xl hover:bg-indigo-300">Create Employee</button>
