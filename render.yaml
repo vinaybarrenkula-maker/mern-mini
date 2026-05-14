@@ -3,7 +3,6 @@ services:
   - type: web
     name: emp-app-backend
     env: node
-    plan: free
     rootDir: backend
     buildCommand: npm install
     startCommand: node server.js
@@ -11,16 +10,15 @@ services:
       - key: DB_URL
         sync: false
       - key: FRONTEND_URL
-        sync: false # Set this to your Frontend URL after deployment
+        sync: false
 
   # Frontend Static Site
   - type: web
     name: emp-app-frontend
     runtime: static
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        sync: false # Set this to your Backend URL after deployment
+        sync: false
