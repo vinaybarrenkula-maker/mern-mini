@@ -1,5 +1,5 @@
 services:
-  # Backend Web Service
+  # Backend Web Service (Free tier - only 1 allowed per account)
   - type: web
     name: emp-app-backend
     env: node
@@ -12,10 +12,9 @@ services:
       - key: FRONTEND_URL
         sync: false
 
-  # Frontend Static Site
-  - type: web
+  # Frontend Static Site (Always Free - no limit)
+  - type: static
     name: emp-app-frontend
-    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
