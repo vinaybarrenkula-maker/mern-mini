@@ -10,27 +10,7 @@ const app = exp()
 
 // CORS middleware
 app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl)
-        if (!origin) return callback(null, true);
-        
-        const allowedPatterns = [
-            /^http:\/\/localhost:\d+$/,
-            /\.vercel\.app$/,
-            process.env.FRONTEND_URL
-        ];
-
-        const isAllowed = allowedPatterns.some(pattern => {
-            if (pattern instanceof RegExp) return pattern.test(origin);
-            return pattern === origin;
-        });
-
-        if (isAllowed) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: (origin, callback) => callback(null, true), // Allow all origins
     credentials: true
 }))
 
