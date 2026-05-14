@@ -10,7 +10,10 @@ const app = exp()
 
 // CORS middleware
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'https://vercel.com/shivathota1323s-projects/mern-mini-app',
+    origin: [
+        process.env.FRONTEND_URL,
+        'http://localhost:5173'
+    ].filter(Boolean),
     credentials: true
 }))
 
