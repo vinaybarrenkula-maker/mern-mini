@@ -9,7 +9,7 @@ function Home() {
     <div className="bg-gradient-to-br from-slate-100 to-blue-100 min-h-screen text-gray-800">
 
       {/* HERO SECTION */}
-      <section className="text-center py-20 px-6 bg-gradient-to-r from-yello-700 to-yellow-800 text-white shadow-lg">
+      <section className="text-center py-20 px-6 bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg">
         <h1 className="text-5xl md:text-7xl font-bold mb-5">
           Employee Management System
         </h1>
